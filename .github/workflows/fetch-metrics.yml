@@ -2,12 +2,6 @@ name: Fetch Retro Funding Metrics
 
 on:
   workflow_dispatch:
-    inputs:
-      input_data:
-        description: 'Input data as JSON string'
-        required: false
-        type: string
-        default: '{}'
 
 jobs:
   fetch-metrics:
