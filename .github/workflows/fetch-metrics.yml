@@ -27,11 +27,14 @@ jobs:
           source .venv/bin/activate
           uv pip install -r requirements.txt
           
+      - name: Create data directory
+        run: mkdir -p data
+          
       - name: Run fetch-metrics script
         id: fetch-metrics
         run: |
           source .venv/bin/activate
-          python src/main.py
+          python src/main.py --output-file data/export.json
         shell: bash
         continue-on-error: true
         
@@ -44,7 +47,7 @@ jobs:
       - name: Process output
         if: success()
         run: |
-          echo "Gist output:"
+          echo "Script output:"
           echo "${{ steps.fetch-metrics.outputs.stdout }}"
           if [ -n "${{ steps.fetch-metrics.outputs.stderr }}" ]; then
             echo "Warnings/Debug info:"

@@ -39,8 +39,9 @@ def fetch_metrics(
             with open(output_file, 'w') as f:
                 f.write(output_json)
         
-        # Print to stdout for GitHub Actions
-        print(output_json)
+        # Print row count instead of full output
+        row_count = len(metrics_data)
+        print(f"Successfully processed {row_count} metrics rows")
         
     except Exception as e:
         error_result = MetricsResult(
