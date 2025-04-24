@@ -51,4 +51,5 @@ jobs:
           echo "${{ steps.fetch-metrics.outputs.stdout }}"
           if [ -n "${{ steps.fetch-metrics.outputs.stderr }}" ]; then
             echo "Warnings/Debug info:"
-            echo "${{ steps.fetch-metrics.outputs.stderr }}" 
+            echo "${{ steps.fetch-metrics.outputs.stderr }}"
+          fi
